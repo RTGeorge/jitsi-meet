@@ -27,9 +27,7 @@ describe 'RTC', ->
 #      EventEmitter: ->
 #        on: sandbox.stub()
 
-  afterEach ->
-    sandbox.restore()
-
+  beforeEach ->
     RTC = require('../../modules/RTC/RTC.js', {
       'events': mock.events
       './RTCUtils.js': ->
@@ -43,6 +41,9 @@ describe 'RTC', ->
       '../../service/xmpp/XMPPEvents': ->
       '../../service/UI/UIEvents': ->
     })
+
+  afterEach ->
+    sandbox.restore()
 
   describe 'init', ->
 
@@ -65,4 +66,3 @@ describe 'RTC', ->
   describe 'addStreamListener', ->
   
     it 'should invoke eventEmitter.on', ->
-    
